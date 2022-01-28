@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import '../styles/Navbar.scss';
 import logo from '../images/ollin_black_500.png';
 
@@ -24,9 +24,27 @@ export default function Navbar(props) {
                 <h1><img src={logo} alt='black logo' /></h1>
                 <nav>
                     <ul>
-                        <li><button>ABOUT</button></li>
-                        <li><button>CONTACT</button></li>
-                        <li><button>SIGN UP</button></li>
+                        <li>
+                            <Link activeClass="active" to="about" spy={true} smooth={true} offset={0} duration={0}
+                                onClick={() => {setActive(false)}}
+                            >
+                                ABOUT
+                            </Link>
+                        </li>
+                        <li>
+                            <Link activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={0}
+                                onClick={() => {setActive(false)}}
+                            >
+                                CONTACT
+                            </Link>
+                        </li>
+                        <li>
+                            <Link activeClass="active" to="footer" spy={true} smooth={true} offset={0} duration={0}
+                                onClick={() => {setActive(false)}}
+                            >
+                                SIGN UP
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
                 <div className='locations'>

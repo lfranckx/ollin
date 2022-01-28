@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-scroll';
 import video from '../images/moon.mp4';
 import logo from '../images/ollin_cream_1000.png';
 
@@ -39,7 +40,9 @@ export default function Homepage() {
                             potential. Ollin's story is a way of being and self-care that should be a way of life.
                         </p>
 
-                        <button className='btn'>Contact us</button>
+                        <div className='btn-wrap'>
+                            <Link className='btn' activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={500}>Contact us</Link>
+                        </div>
                     </div>
                 </section>
                 <section id='contact'>
