@@ -22,6 +22,7 @@ export default function Footer() {
                             <button className='btn'>Send</button>
                         </form>
                     </div>
+
                     <div className='social-links'>
                         <ul>
                             <li><i className="fab fa-facebook-f"></i></li>
@@ -31,6 +32,7 @@ export default function Footer() {
                         </ul>
                     </div>
                 </div>
+
                 <div className='locations'>
                     <ul>
                         <li>
