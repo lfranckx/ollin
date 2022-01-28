@@ -4,6 +4,7 @@ import { withRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Homepage from '../pages/Homepage';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Switch>
                     <Route exact path='/' component={Homepage} />
                 </Switch>
+                <Footer />
             </div>
         </>
     )
