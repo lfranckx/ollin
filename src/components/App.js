@@ -3,6 +3,7 @@ import '../styles/App.scss';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Homepage from '../pages/Homepage';
+import Navbar from './Navbar';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
                 <title>Ollin | Johnny Ramirez</title>
             </Helmet>
             <div className='app'>
+                <Navbar />
                 <Switch>
                     <Route exact path='/' component={Homepage} />
                 </Switch>

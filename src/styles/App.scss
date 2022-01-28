@@ -1,0 +1,171 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    font-family: 'Bicyclette';
+    font-weight: 400;
+    color: #F9F4EC;
+}
+
+body {
+    margin: 0;
+    background: #141313;
+}
+
+.app {
+    text-align: center;
+    scroll-behavior: smooth;
+    -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;
+}
+
+h1, h2, h3, h4, h5, ul, p, a {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 150px;
+}
+
+p {
+    font-family: 'Capitollium';
+    line-height: 1.8;
+    font-size: 22px;
+    font-weight: 100;
+}
+
+a {
+    text-decoration: none;
+}
+  
+li {
+    list-style-type: none;
+}
+  
+button {
+    background: none;
+    outline: unset;
+    border: unset;
+  
+    &:hover {
+      cursor: pointer;
+    }
+}
+
+.btn {
+    padding: 10px 30px;
+    border: solid 1px #F9F4EC;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background: #F9F4EC;
+        color: #141313;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+input {
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 20px;
+}
+
+#hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+    padding: 20px;
+    background: none;
+
+    video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: -1;
+    }
+
+    h1 {
+        padding: 20px; 
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+        }
+    }
+}
+
+main {
+    section {
+        height: 100vh;
+        background: #141313;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    
+        .content {
+            max-width: 1000px;
+            margin-right: auto;
+            padding: 80px;
+            text-align: left;
+
+            h2 {
+                margin: 60px 0 50px;
+            }
+    
+            p {
+                margin-top: 20px;
+            }
+    
+            button {
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+#contact-form {
+    width: 1000px;
+
+    input {
+        font-size: 24px;
+        margin: 20px 0;
+        width: 100%;
+        border-bottom: solid 1px #F9F4EC;
+
+        &::placeholder {
+            color: #F9F4EC;
+        }
+    }
+}
+
+/*================ SASS HELPERS ================*/
+/*============================================================================
+  Convert pixels to ems
+  eg. for a relational value of 12px write em(12) when the parent is 16px
+  if the parent is another value say 24px write em(12, 24)
+  Based on https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/functions/_px-to-em.scss
+==============================================================================*/
+@function em($pxval, $base: $font-size-base) {
+    @if not unitless($pxval) {
+      $pxval: strip-units($pxval);
+    }
+    @if not unitless($base) {
+      $base: strip-units($base);
+    }
+    @return ($pxval / $base) * 1em;
+}
