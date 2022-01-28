@@ -11,13 +11,15 @@ export default function Footer() {
                             <div className="label">
                                 <label htmlFor="email"></label>
                             </div>
-                            <div>
+                            <div className='input-wrap'>
                                 <input
                                     type="email"
                                     name="email"
                                     placeholder="EMAIL"
                                 />
                             </div>
+
+                            <button className='btn'>Send</button>
                         </form>
                     </div>
                     <div className='social-links'>
@@ -32,16 +34,13 @@ export default function Footer() {
                 <div className='locations'>
                     <ul>
                         <li>
-                            <h3>Miami</h3>
-                            <h4>(786)536-9090</h4>
+                            <h3>Miami <span>(786)536-9090</span></h3>
                         </li>
                         <li>
-                            <h3>Los Angeles</h3>
-                            <h4>(424)204-9095</h4>
+                            <h3>Los Angeles <span>(424)204-9095</span></h3>
                         </li>
                         <li>
-                            <h3>Mexico City</h3>
-                            <h4>Coming Soon</h4>
+                            <h3>Mexico City <span>Coming Soon</span></h3>
                         </li>
                     </ul>
                 </div>
