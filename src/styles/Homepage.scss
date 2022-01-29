@@ -57,9 +57,9 @@ main {
         scroll-snap-align: start;
 
         @media(max-width: 700px) {
-            &:nth-child(1) {
-                height: auto;
-            }
+            // &:nth-child(1) {
+            //     height: auto;
+            // }
             
             scroll-snap-align: none;
         }
