@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import '../styles/Navbar.scss';
-import logo from '../images/ollin_black_500.png';
 
 export default function Navbar(props) {
     const [active, setActive] = useState(false);
@@ -20,10 +19,13 @@ export default function Navbar(props) {
             </div>
             
             <div className={`menu ${active ? 'show' : ''}`}>
-                <Link activeClass="active" to="hero" spy={true} smooth={true} offset={0} duration={0}
-                    onClick={() => {setActive(false)}}>
-                    <h1><img src={logo} alt='black logo' /></h1>
-                </Link>
+                <div className='logo-link-wrap'>
+                    <Link activeClass="active" to="hero" spy={true} smooth={true} offset={0} duration={0}
+                        onClick={() => {setActive(false)}}>
+                        <h1><img src='https://ollin-salon.s3.us-east-2.amazonaws.com/ollin_black_500.png' alt='black logo' /></h1>
+                    </Link>
+                </div>
+
                 <nav>
                     <ul>
                         <li>

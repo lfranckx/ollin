@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import video from '../images/moon.mp4';
-import logo from '../images/ollin_cream_1000.png';
 import '../styles/Homepage.scss';
 import Contact from '../components/Contact';
 
@@ -22,14 +20,14 @@ export default function Homepage() {
         <>
             <header id='hero'>
                 <video 
-                    src={video}
+                    src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'
                     autoPlay
                     loop
                     muted
                 />
 
                 <h1>
-                    <img src={logo} alt='cream logo' />
+                    <img src='https://ollin-salon.s3.us-east-2.amazonaws.com/ollin_cream_1000.png' alt='cream logo' />
                 </h1>
             </header>
             <main id='main'>

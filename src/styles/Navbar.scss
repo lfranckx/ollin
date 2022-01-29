@@ -89,13 +89,17 @@
         transition: all 0.6s ease;
         padding: 20px;
 
+        .logo-link-wrap {
+            width: fit-content;
+            margin: auto;
+        }
+
         a {
             cursor: pointer;
             
             h1 {
                 img {
                     width: 250px;
-                    margin-bottom: 60px;
 
                     @media(max-width: 700px) {
                         margin-bottom: 40px;
@@ -115,7 +119,9 @@
         }
 
         nav {
+            padding-top: 40px;
             ul {
+                
                 li {
                     margin: 80px 0;
                     a {

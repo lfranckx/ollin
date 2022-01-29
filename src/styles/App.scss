@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Bicyclette';
+    src: url('../fonts/Bicyclette-Regular.woff');
+}
+
+@font-face {
+    font-family: 'Capitolium';
+    src: url('../fonts/CapitoliumRegularRoman.otf');
+}
+
 * {
     box-sizing: border-box;
     -webkit-transition: all .2s ease-in-out;
