@@ -103,6 +103,11 @@ main {
         .content.active {
             opacity: 1;
         }
+
+
+        @media(max-width: 700px) {
+            padding-bottom: 60px;
+        }
     }
 }
 
@@ -170,9 +175,5 @@ main {
     }
     .content.active {
         opacity: 1;
-    }
-
-    @media(max-width: 700px) {
-        padding-bottom: 40px;
     }
 }

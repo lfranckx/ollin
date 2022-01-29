@@ -51,7 +51,7 @@ export default function Homepage() {
                         </div>
                     </section>
                     <section id='contact' className='section'>
-                        <div className={scrollPos >= 1200  ? 'content active' : 'content'}>
+                        <div className={scrollPos >= 1400  ? 'content active' : 'content'}>
                             <h2>CONTACT</h2>
                             <h3>To book an appointment with one of our stylists here at Ollin salon, please call to schedule your service.</h3>
                             <Contact />
