@@ -109,6 +109,10 @@ main {
         }
 
         .ty-wrap {
+            opacity: 0;
+            height: 0;
+            transition: all 0.4s ease;
+
             p { 
                 a {
                     color: #B79A85;
@@ -117,6 +121,11 @@ main {
                     }
                 }
             }
+        }
+
+        .ty-wrap.active {
+            opacity: 1;
+            height: auto;
         }
     }
     .content.active {

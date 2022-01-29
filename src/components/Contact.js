@@ -68,11 +68,11 @@ export default function Contact() {
                 </button>                        
             </form>
 
-            {messageSent && (<div className={ messageSent ? 'ty-wrap active' : 'ty-wrap' } style={props}>
+            <div className={ messageSent ? 'ty-wrap active' : 'ty-wrap' } style={props}>
                 <p>
                     Thank you, we will be in touch shortly. In the meantime you can follow us <a href='https://www.instagram.com/ollinsalon/?hl=en' target='_blank' rel="noreferrer noopener">@ollinsalon</a>
                 </p>
-            </div>)}
+            </div>
         </>
     )
 }
