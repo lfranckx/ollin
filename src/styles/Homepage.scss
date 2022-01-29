@@ -112,11 +112,8 @@ main {
 
         #contact-form {
             width: 1000px;
+            
             @media (max-width: 1200px) {
-                width: 130%;
-            }
-
-            @media(max-width: 900px) {
                 width: 100%;
             }
 
