@@ -57,6 +57,10 @@ main {
 
         @media(max-width: 700px) {
             scroll-snap-align: none;
+
+            .content {
+                h2 { margin-top: 200px; }
+            }
         }
     
         .content {
