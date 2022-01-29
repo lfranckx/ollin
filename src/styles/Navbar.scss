@@ -68,10 +68,14 @@
         transition: all 0.6s ease;
         padding: 20px;
 
-        h1 {
-            img {
-                width: 250px;
-                margin-bottom: 60px;
+        a {
+            cursor: pointer;
+            
+            h1 {
+                img {
+                    width: 250px;
+                    margin-bottom: 60px;
+                }
             }
         }
 

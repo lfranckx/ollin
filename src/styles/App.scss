@@ -9,6 +9,12 @@
     color: #F9F4EC;
 }
 
+html {
+    scroll-behavior: smooth;
+    -ms-scroll-snap-type: y proximity;
+        scroll-snap-type: y proximity;  
+}
+
 body {
     margin: 0;
     background: #141313;

@@ -35,6 +35,7 @@ main {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        scroll-snap-align: start;
     
         .content {
             max-width: 1000px;

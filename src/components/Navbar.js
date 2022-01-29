@@ -21,7 +21,10 @@ export default function Navbar(props) {
             </div>
             
             <div className={`menu ${active ? 'show' : ''}`}>
-                <h1><img src={logo} alt='black logo' /></h1>
+                <Link activeClass="active" to="hero" spy={true} smooth={true} offset={0} duration={0}
+                    onClick={() => {setActive(false)}}>
+                    <h1><img src={logo} alt='black logo' /></h1>
+                </Link>
                 <nav>
                     <ul>
                         <li>
