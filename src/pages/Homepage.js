@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import video from '../images/moon.mp4';
 import logo from '../images/ollin_cream_1000.png';
@@ -7,12 +7,6 @@ import Contact from '../components/Contact';
 
 export default function Homepage() {
     const [scrollPos, setScrollPos] = useState(0);
-    const [activeSection, setActiveSection] = useState(1);
-    const sectionRef = useRef();
-    // const sectionRefOffsetTop = sectionRef.current.offsetTop;
-    // console.log(sectionRefOffsetTop);
-    // console.log(scrollPos);
-    
     const handleScroll = () => setScrollPos(window.pageYOffset);
   
     useEffect(() => {
@@ -39,7 +33,7 @@ export default function Homepage() {
                 </h1>
             </header>
             <main id='main'>
-                <div className='section-wrap' ref={sectionRef} >
+                <div className='section-wrap' >
                     <section id='about' className='section' >
                         <div className={ scrollPos >= 500  ? 'content active' : 'content'}>
                             <h2>ABOUT</h2>
@@ -61,7 +55,7 @@ export default function Homepage() {
                     <section id='contact' className='section'>
                         <div className={scrollPos >= 1400  ? 'content active' : 'content'}>
                             <h2>CONTACT</h2>
-                            <Contact activeSection={activeSection} />
+                            <Contact />
                         </div>
                     </section>
                 </div>
