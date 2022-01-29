@@ -1,8 +1,6 @@
 * {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     font-family: 'Bicyclette';
     font-weight: 400;
@@ -12,7 +10,8 @@
 html {
     scroll-behavior: smooth;
     -ms-scroll-snap-type: y proximity;
-        scroll-snap-type: y proximity;  
+        -webkit-scroll-snap-type: y proximity;
+            scroll-snap-type: y proximity;  
     overflow-y: scroll;
 }
 
@@ -25,7 +24,8 @@ body {
     text-align: center;
     scroll-behavior: smooth;
     -ms-scroll-snap-type: y mandatory;
-        scroll-snap-type: y mandatory;
+        -webkit-scroll-snap-type: y mandatory;
+            scroll-snap-type: y mandatory;
 }
 
 h1, h2, h3, h4, h5, ul, p, a {
@@ -88,6 +88,41 @@ input {
     font-weight: 200;
     font-size: 32px;
 
+    &::-webkit-input-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &::-moz-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &:-ms-input-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &::-ms-input-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &::-webkit-input-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &::-moz-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
+    &:-ms-input-placeholder {
+        color: #F9F4EC;
+        font-size: 24px;
+    }
+
     &::placeholder {
         color: #F9F4EC;
         font-size: 24px;
@@ -100,6 +135,27 @@ input {
     .btn { font-size: 18px; }
     input {
         font-size: 30px;
+        &::-webkit-input-placeholder {
+            font-size: 22px;
+        }
+        &::-moz-placeholder {
+            font-size: 22px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 22px;
+        }
+        &::-ms-input-placeholder {
+            font-size: 22px;
+        }
+        &::-webkit-input-placeholder {
+            font-size: 22px;
+        }
+        &::-moz-placeholder {
+            font-size: 22px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 22px;
+        }
         &::placeholder {
             font-size: 22px;
         }
@@ -112,6 +168,27 @@ input {
     .btn { font-size: 16px; }
     input {
         font-size: 28px;
+        &::-webkit-input-placeholder {
+            font-size: 20px;
+        }
+        &::-moz-placeholder {
+            font-size: 20px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 20px;
+        }
+        &::-ms-input-placeholder {
+            font-size: 20px;
+        }
+        &::-webkit-input-placeholder {
+            font-size: 20px;
+        }
+        &::-moz-placeholder {
+            font-size: 20px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 20px;
+        }
         &::placeholder {
             font-size: 20px;
         }
@@ -127,6 +204,27 @@ input {
     }
     input {
         font-size: 26px;
+        &::-webkit-input-placeholder {
+            font-size: 18px;
+        }
+        &::-moz-placeholder {
+            font-size: 18px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 18px;
+        }
+        &::-ms-input-placeholder {
+            font-size: 18px;
+        }
+        &::-webkit-input-placeholder {
+            font-size: 18px;
+        }
+        &::-moz-placeholder {
+            font-size: 18px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 18px;
+        }
         &::placeholder {
             font-size: 18px;
         }
@@ -142,6 +240,27 @@ input {
     }
     input {
         font-size: 24px;
+        &::-webkit-input-placeholder {
+            font-size: 16px;
+        }
+        &::-moz-placeholder {
+            font-size: 16px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 16px;
+        }
+        &::-ms-input-placeholder {
+            font-size: 16px;
+        }
+        &::-webkit-input-placeholder {
+            font-size: 16px;
+        }
+        &::-moz-placeholder {
+            font-size: 16px;
+        }
+        &:-ms-input-placeholder {
+            font-size: 16px;
+        }
         &::placeholder {
             font-size: 16px;
         }

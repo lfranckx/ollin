@@ -11,12 +11,23 @@
 
     footer {
         .flex-wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            -webkit-box-align: center;
+                -ms-flex-align: center;
+                    align-items: center;
+            -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                    justify-content: space-between;
             @media(max-width: 900px) {
-                flex-direction: column;
-                align-items: flex-start;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                        flex-direction: column;
+                -webkit-box-align: start;
+                    -ms-flex-align: start;
+                        align-items: flex-start;
             }
 
             .newsletter {
@@ -93,6 +104,8 @@
 
         .social-links {
             ul {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
 
                 li {
@@ -133,8 +146,12 @@
         .locations {
             padding-top: 60px;
             ul {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
 
                 li {
                     margin: 0 40px;
@@ -174,11 +191,15 @@
                 }
 
                 @media(max-width: 515px) {
-                    flex-direction: column;
-                    align-items: flex-end;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                        -ms-flex-direction: column;
+                            flex-direction: column;
+                    -webkit-box-align: end;
+                        -ms-flex-align: end;
+                            align-items: flex-end;
                     
                     li {
-                        // margin: 0 20px;
                         margin: 10px 0;
                         text-align: right;
                     }
