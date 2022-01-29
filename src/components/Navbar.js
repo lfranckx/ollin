@@ -5,7 +5,6 @@ import logo from '../images/ollin_black_500.png';
 
 export default function Navbar(props) {
     const [active, setActive] = useState(false);
-    const [location, setLocation] = useState("");
 
     return (
         <div id='nav-wrap'>

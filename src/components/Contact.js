@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router';
 import emailjs from 'emailjs-com';
-import { useSpring, animated } from 'react-spring';
 
 export default function Contact() {
     const [messageSent, handleMessageSent] = useState(false);
-    const props = useSpring({ from: { opacity: 0 }, to: { opacity: 1 } });
 
-    const history = useHistory();
     function sendEmail(e) {
         e.preventDefault();
 
@@ -72,11 +68,11 @@ export default function Contact() {
                 </button>                        
             </form>
 
-            {messageSent && (<animated.div className={ messageSent ? 'ty-wrap active' : 'ty-wrap' } style={props}>
+            {messageSent && (<div className={ messageSent ? 'ty-wrap active' : 'ty-wrap' } style={props}>
                 <p>
                     Thank you, we will be in touch shortly. In the meantime you can follow us <a href='https://www.instagram.com/ollinsalon/?hl=en' target='_blank' rel="noreferrer noopener">@ollinsalon</a>
                 </p>
-            </animated.div>)}
+            </div>)}
         </>
     )
 }
