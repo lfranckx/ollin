@@ -47,7 +47,7 @@ main {
             transition: all 0.6s ease;
 
             @media(max-width: 1000px) {
-                max-width: 85%;
+                max-width: 100%;
             }
 
             h2 {
@@ -70,6 +70,9 @@ main {
 }
 #contact {
     .content {
+        @media(max-width: 900px) {
+            max-width: 100%;
+        }
 
         #contact-form {
             width: 1000px;
@@ -88,6 +91,17 @@ main {
         
             button {
                 margin-top: 40px;
+            }
+        }
+
+        .ty-wrap {
+            p { 
+                a {
+                    color: #B79A85;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
