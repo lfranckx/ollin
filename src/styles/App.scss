@@ -11,8 +11,8 @@
 
 html {
     scroll-behavior: smooth;
-    -ms-scroll-snap-type: y proximity;
-        scroll-snap-type: y proximity;  
+    -ms-scroll-snap-type: y mandatory;
+        scroll-snap-type: y mandatory;  
 }
 
 body {

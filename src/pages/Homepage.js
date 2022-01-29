@@ -1,16 +1,17 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-scroll';
+// import createScrollSnap from 'scroll-snap';
 import video from '../images/moon.mp4';
 import logo from '../images/ollin_cream_1000.png';
 
 import '../styles/Homepage.scss';
-import Contact from './Contact';
+import Contact from '../components/Contact';
 
 export default function Homepage() {
+
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        window.scrollTo(0,0);
+    }, [])
 
     return(
         <>
@@ -26,8 +27,8 @@ export default function Homepage() {
                     <img src={logo} alt='cream logo' />
                 </h1>
             </header>
-            <main>
-                <section id='about'>
+            <main id='main'>
+                <section id='about' className='section'>
                     <div className='content'>
                         <h2>ABOUT</h2>
                         <p>
@@ -45,7 +46,7 @@ export default function Homepage() {
                         </div>
                     </div>
                 </section>
-                <section id='contact'>
+                <section id='contact' className='section'>
                     <div className='content'>
                         <h2>CONTACT</h2>
                         <Contact />
