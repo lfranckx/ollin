@@ -63,6 +63,7 @@ export default function Navbar(props) {
                             <h3>Mexico City <span>Coming Soon</span></h3>
                         </li>
                     </ul>
+                    <h3 className='note'>To book an appointment with one of our stylists here at Ollin salon, please call to schedule your service.</h3>
                 </div>
             </div>
         </div>
