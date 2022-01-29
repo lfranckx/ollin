@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import emailjs from 'emailjs-com';
-import '../styles/Contact.scss';
 
 
 export default function Contact() {

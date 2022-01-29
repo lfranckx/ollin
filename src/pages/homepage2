@@ -1,0 +1,88 @@
+import React, { useEffect, useRef, useState } from 'react';
+// import { Link } from 'react-scroll';
+import { useSpring, animated } from 'react-spring';
+import video from '../images/moon.mp4';
+import logo from '../images/ollin_cream_1000.png';
+
+import '../styles/Homepage.scss';
+import Contact from '../components/Contact';
+
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY
+    };
+}
+
+export default function Homepage() {
+    const props = useSpring({ from: { opacity: 0, marginTop: -500 }, to: { opacity: 1, marginTop: 0 } })
+
+    const [scrollPos, setScrollPos] = useState(0);
+    const [activeSection, setActiveSection] = useState(1);
+    const sectionRef = useRef();
+    // const sectionRefOffsetTop = sectionRef.current.offsetTop;
+    // console.log(sectionRefOffsetTop);
+    // console.log(scrollPos);
+    
+    const handleScroll = () => setScrollPos(window.pageYOffset);
+  
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        window.scrollTo(0,0);
+    }, []);
+
+    return(
+        <>
+            <header id='hero'>
+                <video 
+                    src={video}
+                    autoPlay
+                    loop
+                    muted
+                />
+
+                <h1>
+                    <img src={logo} alt='cream logo' />
+                </h1>
+            </header>
+            <main id='main'>
+                <div className='section-wrap' ref={sectionRef} >
+                    {activeSection === 1 && (
+                        <section id='about' className='section' >
+                            <div className={ scrollPos === 500 || scrollPos > 500 ? 'content active' : 'content'}>
+                                <h2>ABOUT</h2>
+                                <p>
+                                    "Ollin" is a capturing word that translates to "movement" or "motion". Ollin represents the cyclical movement of 
+                                    nature with respect to the four directions. A fundamental concept of Aztec/Mexica cosmetology, a guide for everyday 
+                                    life and decisions. The objective is to constantly strive for balance, even when there is struggle.
+                                </p>
+                                <p>
+                                    Ollin salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner 
+                                    potential. Ollin's story is a way of being and self-care that should be a way of life.
+                                </p>
+
+                                <div className='btn-wrap'>
+                                    {/* <Link className='btn' activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={500}>Contact us</Link> */}
+                                    <button className='btn' onClick={() => {setActiveSection(2)}}>Contact us</button>
+                                </div>
+                            </div>
+                        </section>
+                    )}
+                    {activeSection === 2 && (
+                        <section id='contact' className='section'>
+                            <animated.div className={'content active'}>
+                                <h2>CONTACT</h2>
+                                <Contact activeSection={activeSection} />
+                            </animated.div>
+                        </section>
+                    )}
+                </div>
+            </main>
+        </>
+    )
+}

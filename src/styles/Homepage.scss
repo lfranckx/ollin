@@ -9,7 +9,7 @@
     object-fit: contain;
     padding: 20px;
     background: none;
-    scroll-snap-align: start;
+    // scroll-snap-align: start;
 
     video {
         object-fit: cover;
@@ -43,6 +43,8 @@ main {
             margin-right: auto;
             padding: 80px;
             text-align: left;
+            opacity: 0;
+            transition: all 0.6s ease;
 
             h2 {
                 margin: 60px 0 50px;
@@ -56,18 +58,29 @@ main {
                 margin-top: 40px;
             }
         }
+
+        .content.active {
+            opacity: 1;
+        }
     }
 }
+#contact {
+    .content {
 
-#contact-form {
-    width: 1000px;
-
-    input {
-        margin: 20px 0;
-        width: 100%;
+        #contact-form {
+            width: 1000px;
+        
+            input {
+                margin: 20px 0;
+                width: 100%;
+            }
+        
+            button {
+                margin-top: 40px;
+            }
+        }
     }
-
-    button {
-        margin-top: 40px;
+    .content.active {
+        opacity: 1;
     }
 }

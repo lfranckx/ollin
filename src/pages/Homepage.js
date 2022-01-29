@@ -1,17 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-scroll';
-// import createScrollSnap from 'scroll-snap';
 import video from '../images/moon.mp4';
 import logo from '../images/ollin_cream_1000.png';
-
 import '../styles/Homepage.scss';
 import Contact from '../components/Contact';
 
 export default function Homepage() {
+    const [scrollPos, setScrollPos] = useState(0);
+    const [activeSection, setActiveSection] = useState(1);
+    const sectionRef = useRef();
+    // const sectionRefOffsetTop = sectionRef.current.offsetTop;
+    // console.log(sectionRefOffsetTop);
+    // console.log(scrollPos);
+    
+    const handleScroll = () => setScrollPos(window.pageYOffset);
+  
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0,0);
-    }, [])
+    }, []);
 
     return(
         <>
@@ -28,30 +39,32 @@ export default function Homepage() {
                 </h1>
             </header>
             <main id='main'>
-                <section id='about' className='section'>
-                    <div className='content'>
-                        <h2>ABOUT</h2>
-                        <p>
-                            "Ollin" is a capturing word that translates to "movement" or "motion". Ollin represents the cyclical movement of 
-                            nature with respect to the four directions. A fundamental concept of Aztec/Mexica cosmetology, a guide for everyday 
-                            life and decisions. The objective is to constantly strive for balance, even when there is struggle.
-                        </p>
-                        <p>
-                            Ollin salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner 
-                            potential. Ollin's story is a way of being and self-care that should be a way of life.
-                        </p>
+                <div className='section-wrap' ref={sectionRef} >
+                    <section id='about' className='section' >
+                        <div className={ scrollPos >= 500  ? 'content active' : 'content'}>
+                            <h2>ABOUT</h2>
+                            <p>
+                                "Ollin" is a capturing word that translates to "movement" or "motion". Ollin represents the cyclical movement of 
+                                nature with respect to the four directions. A fundamental concept of Aztec/Mexica cosmetology, a guide for everyday 
+                                life and decisions. The objective is to constantly strive for balance, even when there is struggle.
+                            </p>
+                            <p>
+                                Ollin salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner 
+                                potential. Ollin's story is a way of being and self-care that should be a way of life.
+                            </p>
 
-                        <div className='btn-wrap'>
-                            <Link className='btn' activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={500}>Contact us</Link>
+                            <div className='btn-wrap'>
+                                <Link className='btn' activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={100}>Contact us</Link>
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <section id='contact' className='section'>
-                    <div className='content'>
-                        <h2>CONTACT</h2>
-                        <Contact />
-                    </div>
-                </section>
+                    </section>
+                    <section id='contact' className='section'>
+                        <div className={scrollPos >= 1400  ? 'content active' : 'content'}>
+                            <h2>CONTACT</h2>
+                            <Contact activeSection={activeSection} />
+                        </div>
+                    </section>
+                </div>
             </main>
         </>
     )
