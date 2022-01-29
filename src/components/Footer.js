@@ -20,7 +20,7 @@ export default function Footer() {
                                 />
                             </div>
 
-                            <button className='btn'>Send</button>
+                            <button className='btn'>SEND</button>
                         </form>
                     </div>
 
