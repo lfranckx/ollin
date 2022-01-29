@@ -55,6 +55,15 @@ main {
             -ms-flex-direction: column;
                 flex-direction: column;
         scroll-snap-align: start;
+
+        @media(max-width: 700px) {
+            &:nth-child(1) {
+                height: auto;
+            }
+            
+            scroll-snap-align: none;
+        }
+        
     
         .content {
             max-width: 1000px;

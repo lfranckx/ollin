@@ -9,6 +9,10 @@
         padding: 40px;
     }
 
+    @media(max-width: 700px) {
+        scroll-snap-align: none;
+    }
+
     footer {
         .flex-wrap {
             display: -webkit-box;
