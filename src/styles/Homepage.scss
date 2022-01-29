@@ -59,7 +59,10 @@ main {
             scroll-snap-align: none;
 
             .content {
-                h2 { margin-top: 200px; }
+                h2 { 
+                    margin-top: 200px; 
+                    margin-bottom: 40px;
+                }
             }
         }
     
