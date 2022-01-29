@@ -26,10 +26,10 @@ export default function Footer() {
 
                     <div className='social-links'>
                         <ul>
-                            <li><i className="fab fa-facebook-f"></i></li>
-                            <li><i className="fab fa-instagram"></i></li>
-                            <li><i className="fab fa-pinterest-p"></i></li>
-                            <li><i className="fab fa-youtube"></i></li>
+                            <li><a href='https://www.facebook.com/Livedincolor/' target="_blank" rel="noreferrer noopener"><i className="fab fa-facebook-f"></i></a></li>
+                            <li><a href='https://www.instagram.com/johnnyramirez/' target="_blank" rel="noreferrer noopener"><i className="fab fa-instagram"></i></a></li>
+                            <li><a href='https://www.pinterest.com/JohnnyRamirez1/' target="_blank" rel="noreferrer noopener"><i className="fab fa-pinterest-p"></i></a></li>
+                            <li><a href='https://www.youtube.com/c/JohnnyRamirezColor' target="_blank" rel="noreferrer noopener"><i className="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
