@@ -57,13 +57,6 @@ main {
 
         @media(max-width: 700px) {
             scroll-snap-align: none;
-
-            .content {
-                h2 { 
-                    margin-top: 200px; 
-                    margin-bottom: 40px;
-                }
-            }
         }
     
         .content {
@@ -75,18 +68,6 @@ main {
             -webkit-transition: all 0.6s ease;
             transition: all 0.6s ease;
 
-            @media(max-width: 1000px) {
-                max-width: 85%;
-            }
-
-            @media(max-width: 840px) {
-                padding: 40px;
-            }
-
-            @media(max-width: 515px) {
-                padding-right: 0;
-            }
-
             h2 {
                 margin: 60px 0 40px;
             }
@@ -97,6 +78,21 @@ main {
 
             .btn-wrap {
                 margin-top: 60px;
+            }
+
+            @media(max-width: 1000px) {
+                max-width: 85%;
+            }
+
+            @media(max-width: 840px) {
+                padding: 40px;
+                h2 {
+                    margin-top: 100px;
+                }
+            }
+
+            @media(max-width: 515px) {
+                padding-right: 0;
             }
         }
 
