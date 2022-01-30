@@ -37,13 +37,13 @@ export default function Footer() {
                 <div className='locations'>
                     <ul>
                         <li>
-                            <h3>Miami <span>(786)536-9090</span></h3>
+                            <h3>Los Angeles <a href='tel:424-204-9095' rel="noreferrer noopener">(424)204-9095</a></h3>
                         </li>
                         <li>
-                            <h3>Los Angeles <span>(424)204-9095</span></h3>
+                            <h3>Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
                         </li>
                         <li>
-                            <h3>Mexico City <span>Coming Soon</span></h3>
+                            <h3>Mexico City <a>Coming Soon</a></h3>
                         </li>
                     </ul>
                 </div>
