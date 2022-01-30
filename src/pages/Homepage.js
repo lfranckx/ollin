@@ -21,7 +21,7 @@ export default function Homepage() {
             <header id='hero'>
                 <div dangerouslySetInnerHTML={{
                     __html: `
-                        <video autoplay loop muted >
+                        <video autoplay loop muted playsinline >
                             <source src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'></source>
                         </video>
                     `
