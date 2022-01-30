@@ -19,9 +19,13 @@ export default function Homepage() {
     return(
         <>
             <header id='hero'>
-                <video autoPlay loop muted >
-                    <source src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'></source>
-                </video>
+                <div dangerouslySetInnerHTML={{
+                    __html: `
+                        <video autoplay loop muted >
+                            <source src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'></source>
+                        </video>
+                    `
+                }}/>
 
                 <h1>
                     <img src='https://ollin-salon.s3.us-east-2.amazonaws.com/ollin_cream_1000.png' alt='cream logo' />
