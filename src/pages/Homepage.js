@@ -19,13 +19,13 @@ export default function Homepage() {
     return(
         <>
             <header id='hero'>
-                {/* <video 
+                <video 
                     src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'
                     autoPlay
                     loop
                     muted
-                /> */}
-                <div dangerouslySetInnerHTML={{ __html: `
+                />
+                {/* <div dangerouslySetInnerHTML={{ __html: `
                     <video 
                         src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'
                         autoPlay
@@ -33,7 +33,7 @@ export default function Homepage() {
                         muted
                     />
                 `}}>
-                </div>
+                </div> */}
 
                 <h1>
                     <img src='https://ollin-salon.s3.us-east-2.amazonaws.com/ollin_cream_1000.png' alt='cream logo' />
