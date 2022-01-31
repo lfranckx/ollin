@@ -62,10 +62,10 @@ export default function Navbar(props) {
                 <div className='locations'>
                     <ul>
                         <li>
-                            <h3>Los Angeles  <a href='tel:424-204-9095' rel="noreferrer noopener">(424)204-9095</a></h3>
+                            <h3>Ollin Los Angeles  <a href='tel:424-204-9095' rel="noreferrer noopener">(424)204-9095</a></h3>
                         </li>
                         <li>
-                            <h3>Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
+                            <h3>Ollin Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
                         </li>
                     </ul>
                     <h3 className='note'>To book an appointment with one of our stylists here at Ollin salon, please call to schedule your service.</h3>
