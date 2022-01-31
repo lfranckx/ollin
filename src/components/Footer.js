@@ -43,7 +43,7 @@ export default function Footer() {
                             <h3>Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
                         </li>
                         <li>
-                            <h3>Mexico City <a>Coming Soon</a></h3>
+                            <h3>Mexico City <span>Coming Soon</span></h3>
                         </li>
                     </ul>
                 </div>
