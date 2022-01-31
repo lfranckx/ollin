@@ -208,10 +208,10 @@ input {
 @media(max-width: 700px) {
     h2 { font-size: 80px; }
     p { font-size: 16px; }
-    .btn { 
-        font-size: 14px; 
-        padding: 5px 20px;
-    }
+    // .btn { 
+    //     font-size: 14px; 
+    //     padding: 5px 20px;
+    // }
     input {
         font-size: 26px;
         &::-webkit-input-placeholder {
