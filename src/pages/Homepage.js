@@ -27,12 +27,6 @@ export default function Homepage() {
                         </video>
                     `
                 }}/>
-                {/* <div>
-                    <video loop={true} muted={true} autoPlay={"autoplay"} playsinline={true} >
-                        <source src="https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4"/>
-                        Your browser does not support the video tag. I suggest you upgrade your browser.
-                    </video>
-                </div> */}
                 <h1>
                     <img src='https://ollin-salon.s3.us-east-2.amazonaws.com/ollin_cream_1000.png' alt='cream logo' />
                 </h1>

@@ -4,7 +4,7 @@ import { withRouter, Switch, Route } from 'react-router-dom';
 import Homepage from '../pages/Homepage';
 import Navbar from './Navbar';
 import Footer from './Footer';
-
+import NotFound from '../pages/NotFound';
 
 function App() {
     return (
@@ -13,6 +13,7 @@ function App() {
                 <Navbar />
                 <Switch>
                     <Route exact path='/' component={Homepage} />
+                    <Route component={NotFound}/>
                 </Switch>
                 <Footer />
             </div>
