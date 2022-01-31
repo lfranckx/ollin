@@ -22,7 +22,8 @@ export default function Homepage() {
                 <div dangerouslySetInnerHTML={{
                     __html: `
                         <video autoplay loop muted playsinline >
-                            <source src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'></source>
+                            <source src='https://ollin-salon.s3.us-east-2.amazonaws.com/moon.mp4'/>
+                            Your browser does not support the video tag. I suggest you upgrade your browser.
                         </video>
                     `
                 }}/>
