@@ -3,9 +3,9 @@ import axios from 'axios';
 const handler = async (event, context) => {
     const listId = 'b72717cbb6';
     const apiKey = '711a4998123148bc72a99af29015c301-us14';
-
     const body = JSON.parse(event.body);
-    const { email_address, merge_fields } = body;
+    console.log(body);
+    const { email_address } = body;
 
     if (!email_address) {
         return {
@@ -17,7 +17,6 @@ const handler = async (event, context) => {
     try {
         const payload = {
             email_address,
-            merge_fields,
             states: 'subscribed'
         }
 
