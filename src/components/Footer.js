@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Footer.scss';
+import SignUpForm from './SignUpForm';
 
 export default function Footer() {
     return (
@@ -8,7 +9,7 @@ export default function Footer() {
                 <div className='flex-wrap'>
                     <div className='newsletter'>
                         <h3>NEWSLETTER</h3>
-                        <form>
+                        {/* <form>
                             <div className="label">
                                 <label htmlFor="email"></label>
                             </div>
@@ -21,7 +22,8 @@ export default function Footer() {
                             </div>
 
                             <button className='btn'>SEND</button>
-                        </form>
+                        </form> */}
+                        <SignUpForm />
                     </div>
 
                     <div className='social-links'>
@@ -42,9 +44,6 @@ export default function Footer() {
                         <li>
                             <h3>Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
                         </li>
-                        {/* <li>
-                            <h3>Mexico City <span>Coming Soon</span></h3>
-                        </li> */}
                     </ul>
                 </div>
             </footer>
