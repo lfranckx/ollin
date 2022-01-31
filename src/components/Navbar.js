@@ -43,6 +43,14 @@ export default function Navbar(props) {
                             </Link>
                         </li>
                         <li>
+                            <a href='https://johnnyramirez.com/booking/'
+                                target={'_blank'}
+                                rel="noreferrer noopener"
+                            >
+                                BOOKING
+                            </a>
+                        </li>
+                        <li>
                             <Link activeClass="active" to="footer" spy={true} smooth={true} offset={0} duration={0}
                                 onClick={() => {setActive(false)}}
                             >

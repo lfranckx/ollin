@@ -115,6 +115,12 @@ main {
 
 #contact {
     .content {
+        h3 {
+            a {
+                text-decoration: underline;
+            }
+        }
+
         @media(max-width: 900px) {
             max-width: 100%;
             width: 100%;
