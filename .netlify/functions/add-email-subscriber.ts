@@ -21,8 +21,7 @@ const handler = async (event, context) => {
             states: 'subscribed'
         }
 
-        const { data } = await axios.post(`https://us14.api.mailchimp.com/3.0/lists/${listId}/members`, 
-            payload,
+        const { data } = await axios.post(`https://us14.api.mailchimp.com/3.0/lists/${listId}/members`, payload,
             {
                 headers: {
                     Authorization: `Basic ${apiKey}`
@@ -41,4 +40,8 @@ const handler = async (event, context) => {
             body: JSON.stringify(error)
         }
     }
+}
+
+export {
+    handler
 }
