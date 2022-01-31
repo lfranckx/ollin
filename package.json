@@ -48,7 +48,6 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^2.0.2",
     "netlify-lambda": "^2.0.15"
   }
 }
