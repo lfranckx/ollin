@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';nppm run
 
 export default function Contact() {
     const [messageSent, handleMessageSent] = useState(false);
