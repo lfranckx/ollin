@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 export default function Contact() {
     const [messageSent, handleMessageSent] = useState(false);
+    const serviceNum = process.env.REACT_APP_SERVICE_NUM;
+    const templateNum = process.env.REACT_APP_TEMPLATE_NUM;
+    const userId = process.env.REACT_APP_USER_ID;
 
     function sendEmail(e) {
         e.preventDefault();
 
-        emailjs.sendForm('service_a9og5hl', 'template_9uozpwi', e.target, 'user_4ZnH44kohKcJmQhnL2VGX')
+        emailjs.sendForm(serviceNum, templateNum, e.target, userId)
             .then(res => {
                 handleMessageSent(true);
             })
@@ -19,7 +24,7 @@ export default function Contact() {
             <form id='contact-form' onSubmit={sendEmail}>
                 <div className='flex'>
                     <div className="label">
-                        <label htmlFor="name"></label>
+                        <label htmlFor="name" id='name'></label>
                     </div>
                     <div>
                         <input
@@ -30,7 +35,7 @@ export default function Contact() {
                     </div>
 
                     <div className="label">
-                        <label htmlFor="email"></label>
+                        <label htmlFor="email" id='email'></label>
                     </div>
                     <div>
                         <input
@@ -41,7 +46,7 @@ export default function Contact() {
                     </div>
 
                     <div className="label">
-                        <label htmlFor="phone"></label>
+                        <label htmlFor="phone" id='phone'></label>
                     </div>
                     <div>
                         <input
@@ -52,7 +57,7 @@ export default function Contact() {
                     </div>
 
                     <div className="label">
-                        <label htmlFor="message"></label>
+                        <label htmlFor="message" id='message'></label>
                     </div>
                     <div>
                         <input
