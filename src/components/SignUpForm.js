@@ -16,7 +16,7 @@ const SignUpForm = () => {
                 email_address: email
             };
 
-            await axios.post('/.netlify/functions/add-email-subscriber.js', payload);
+            await axios.post('https://serene-visvesvaraya-dac82b.netlify.app/.netlify/functions/add-email-subscriber.js', payload);
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
             // formik.resetForm();
         } catch (error) {
