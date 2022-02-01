@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const handler = async (event, context) => {
-    const listId = 'b72717cbb6';
-    const apiKey = '711a4998123148bc72a99af29015c301-us14';
     const body = JSON.parse(event.body);
     console.log(body);
     const { email_address } = body;
