@@ -7,6 +7,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
+    "dotenv": "^10.0.0",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "react": "^17.0.2",
@@ -25,8 +26,7 @@
     "start:api": "netlify-lambda serve .netlify/functions",
     "build:api": "netlify-lambda build .netlify/functions",
     "start": "react-scripts start",
-    "build:app": "react-scripts build",
-    "build": "npm run build:api && npm runbuild:app",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

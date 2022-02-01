@@ -9,7 +9,7 @@ export default function Footer() {
                 <div className='flex-wrap'>
                     <div className='newsletter'>
                         <h3>NEWSLETTER</h3>
-                        <form>
+                        {/* <form>
                             <div className="label">
                                 <label htmlFor="email"></label>
                             </div>
@@ -22,8 +22,8 @@ export default function Footer() {
                             </div>
 
                             <button className='btn'>SEND</button>
-                        </form>
-                        {/* <SignUpForm /> */}
+                        </form> */}
+                        <SignUpForm />
                     </div>
 
                     <div className='social-links'>

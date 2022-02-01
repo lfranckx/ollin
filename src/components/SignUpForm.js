@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 
-
-
 const SignUpForm = () => {
+
+    const [message, handleMessage] = useState('');
 
     const submitForm = async (values) => {
         console.log(values);
@@ -17,11 +17,11 @@ const SignUpForm = () => {
             };
 
             await axios.post('/.netlify/functions/add-email-subscriber.js', payload);
-            alert('New sign up added successfully');
+            handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
             // formik.resetForm();
         } catch (error) {
-            alert(error.message);
             console.log(error.message);
+            handleMessage(error.message);
         }
     }
 
@@ -47,6 +47,7 @@ const SignUpForm = () => {
                         type='submit'>SEND</button>
                 </Form>
             </Formik>
+            {message && <div>{message}</div>}
         </>
     )
 }

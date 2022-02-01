@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 const handler = async (event, context) => {
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const listId = process.env.REACT_APP_LIST_ID;
+
     const body = JSON.parse(event.body);
     console.log(body);
     const { email_address } = body;
