@@ -89,14 +89,18 @@
                     }
                 }
 
+                button {
+                    margin-top: 25px;
+                    display: block;
+                }
+
                 .error {
                     margin-top: 20px;
                     color: #CB5D67;
                 }
 
-                button {
-                    margin-top: 25px;
-                    display: block;
+                .message {
+                    margin-top: 20px;
                 }
 
                 @media(max-width: 700px) {
