@@ -8,7 +8,7 @@ const SignUpForm = () => {
     const [message, handleMessage] = useState('');
 
     const submitForm = async (values) => {
-        console.log(values);
+        // console.log(values);
         const { email } = values;
 
         try {
