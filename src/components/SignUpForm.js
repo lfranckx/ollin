@@ -9,20 +9,20 @@ const SignUpForm = () => {
 
     const submitForm = async (values) => {
         console.log(values);
-        // const { email } = values;
+        const { email } = values;
 
-        // try {
-        //     const payload = {
-        //         email_address: email
-        //     };
+        try {
+            const payload = {
+                email_address: email
+            };
 
-        //     await axios.post('/.netlify/functions/add-email-subscriber.js', payload);
-        //     alert('New sign up added successfully');
-        //     // formik.resetForm();
-        // } catch (error) {
-        //     alert(error.message);
-        //     console.log(error.message);
-        // }
+            await axios.post('/.netlify/functions/add-email-subscriber.js', payload);
+            alert('New sign up added successfully');
+            // formik.resetForm();
+        } catch (error) {
+            alert(error.message);
+            console.log(error.message);
+        }
     }
 
     const SignUpSchema = Yup.object().shape({
