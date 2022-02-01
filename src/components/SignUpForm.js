@@ -47,7 +47,7 @@ const SignUpForm = () => {
                         type='submit'>SEND</button>
                 </Form>
             </Formik>
-            {message && <div>{message}</div>}
+            {message && <div className='message'>{message}</div>}
         </>
     )
 }
