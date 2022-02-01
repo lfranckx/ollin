@@ -8,7 +8,6 @@ const SignUpForm = () => {
     const [message, handleMessage] = useState('');
 
     const submitForm = async (values) => {
-        // console.log(values);
         const { email } = values;
 
         try {
@@ -16,7 +15,7 @@ const SignUpForm = () => {
                 email_address: email
             };
 
-            await axios.post('/.netlify/functions/add-email-subscriber.js', payload);
+            await axios.post(process.env.REACT_APP_SERVER_URL, payload);
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
             // formik.resetForm();
         } catch (error) {
@@ -42,7 +41,6 @@ const SignUpForm = () => {
                     <ErrorMessage component="div" className='error' name='email' />
                     
                     <button 
-                        // disabled={!Formik.invalid || !Formik.dirty}
                         className='btn' 
                         type='submit'>SEND</button>
                 </Form>
