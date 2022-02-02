@@ -18,7 +18,7 @@ const SignUpForm = () => {
 
             await axios.post(serverUrl, payload);
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
-            // formik.resetForm();
+
         } catch (error) {
             console.log(error.message);
             handleMessage(error.message);
