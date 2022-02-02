@@ -4,14 +4,11 @@ import emailjs from 'emailjs-com';
 
 export default function Contact() {
     const [messageSent, handleMessageSent] = useState(false);
-    const serviceNum = process.env.REACT_APP_SERVICE_NUM;
-    const templateNum = process.env.REACT_APP_TEMPLATE_NUM;
-    const userId = process.env.REACT_APP_USER_ID;
 
     function sendEmail(e) {
         e.preventDefault();
 
-        emailjs.sendForm(serviceNum, templateNum, e.target, userId)
+        emailjs.sendForm("service_a9og5hl", "template_9uozpwi", e.target, "user_4ZnH44kohKcJmQhnL2VGX")
             .then(res => {
                 handleMessageSent(true);
             })
