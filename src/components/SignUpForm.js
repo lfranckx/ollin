@@ -6,6 +6,7 @@ import axios from 'axios';
 const SignUpForm = () => {
 
     const [message, handleMessage] = useState('');
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
 
     const submitForm = async (values) => {
         const { email } = values;
@@ -15,7 +16,7 @@ const SignUpForm = () => {
                 email_address: email
             };
 
-            await axios.post(process.env.REACT_APP_SERVER_URL, payload);
+            await axios.post(serverUrl, payload);
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
             // formik.resetForm();
         } catch (error) {
