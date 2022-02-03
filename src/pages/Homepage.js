@@ -37,7 +37,7 @@ export default function Homepage() {
                         <div className={ scrollPos >= 500  ? 'content active' : 'content'}>
                             <h2>ABOUT</h2>
                             <p>
-                                "Ollin" is a capturing word that translates to "movement" or "motion". Ollin represents the cyclical movement of 
+                                "Ollin" translates to "movement" or "motion". Ollin represents the cyclical movement of 
                                 nature with respect to the four directions. A fundamental concept of Aztec/Mexica cosmetology, a guide for everyday 
                                 life and decisions. The objective is to constantly strive for balance, even when there is struggle.
                             </p>
