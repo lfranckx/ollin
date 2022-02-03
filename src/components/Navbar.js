@@ -39,7 +39,7 @@ export default function Navbar(props) {
                             <Link activeClass="active" to="contact" spy={true} smooth={true} offset={0} duration={0}
                                 onClick={() => {setActive(false)}}
                             >
-                                CONTACT
+                                BOOK A STYLIST
                             </Link>
                         </li>
                         <li>
@@ -47,7 +47,7 @@ export default function Navbar(props) {
                                 target={'_blank'}
                                 rel="noreferrer noopener"
                             >
-                                BOOKING
+                                BOOK WITH JOHNNY
                             </a>
                         </li>
                         <li>
