@@ -16,6 +16,7 @@ const Contact = () => {
     
     const submitForm = (values) => {
         handleButtonState('SENDING')
+        console.log(serviceNum, templateNum, values, userId);
         try {
             emailjs.send(serviceNum, templateNum, values, userId)
             .then(res => {
