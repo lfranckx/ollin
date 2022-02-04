@@ -30,10 +30,10 @@ const Contact = () => {
     }
 
     const contactFormSchema = Yup.object().shape({
-        name: Yup.string().min(2, "Name is too short").max(50, "Name is too long").required("Required"),
-        email: Yup.string().email("Please use a valid email").required("Required"),
-        phone: Yup.string().matches(phoneRegExp, "Sorry, that doesn't appear to be a phone number").required("Required"),
-        message: Yup.string().min(2, "Sorry, your message seems a little short").max(200, "200 maximum characters allowed").required("Required")
+        name: Yup.string().min(1, 'Name is too short').max(20, "20 maximum characters").required('* Required'),
+        email: Yup.string().email("Invalid email").required("* Required"),
+        phone: Yup.string().matches(phoneRegExp, `This doesn't look like a phone number`).required("* Required"),
+        message: Yup.string().max(120, "120 maximum characters").required("* Required"),
     })
 
     return (

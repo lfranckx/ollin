@@ -1,122 +1,113 @@
 import React, { useState } from 'react';
 import * as emailjs from 'emailjs-com';
-import { useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Contact = () => {
-    const [messageSent, handleMessageSent] = useState(false);
-    const [buttonState, handleButtonState] = useState('SEND MESSAGE')
-
+    const [messageSuccess, toggleMessageSuccess] = useState(false);
+    const [buttonState, handleButtonState] = useState('SEND');
+    const [message, handleMessage] = useState('');
+    
+    const serviceNum = process.env.REACT_APP_SERVICE_NUM;
+    const templateNum = process.env.REACT_APP_TEMPLATE_NUM;
+    const userId = process.env.REACT_APP_USER_ID;
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-    const formik = useFormik({
-        initialValues: {
-            name: '',
-            email: '',
-            phone: '',
-            message: '',
-            reply_to: ''
-        },
-        validationSchema: Yup.object({
-            name: Yup.string().min(1, 'Name is too short').max(20, "20 maximum characters").required('* Required'),
-            email: Yup.string().email("Invalid email").required("* Required"),
-            phone: Yup.string().matches(phoneRegExp, `This doesn't look like a phone number`).required("* Required"),
-            message: Yup.string().max(120, "120 maximum characters").required("* Required"),
-            reply_to: Yup.string().min(2, 'Message is too short').email("Invalid email").required("* Required")
-        }),
-        onSubmit: (values) => {
-            console.log('values', values);
-            handleButtonState('SENDING MESSAGE')
-            try {
-                emailjs.send("service_a9og5hl", "template_9uozpwi", values, "user_4ZnH44kohKcJmQhnL2VGX").then(() => {
-                    console.log('email sent');
+    
+    const submitForm = (values) => {
+        console.log(values);
+        handleButtonState('SENDING')
+        try {
+            emailjs.send(serviceNum, templateNum, values, userId)
+            .then(res => {
+                    toggleMessageSuccess(true);
                     handleButtonState('MESSAGE SENT');
-                    handleMessageSent(true);
-                })
-            } catch {
-
-            }
-            
+                }
+            )
+        } catch (error) {
+            console.log(error.message);
+            handleMessage(error.message);
         }
+    }
+
+    const contactFormSchema = Yup.object().shape({
+        name: Yup.string().min(2, 'Name is too short').max(20, "20 maximum characters").required('* Required'),
+        email: Yup.string().email("Invalid email").required("* Required"),
+        phone: Yup.string().matches(phoneRegExp, `This doesn't look like a phone number`).max(10, 'Phone number is too long').required("* Required"),
+        message: Yup.string().min(2, "Message is too short").max(120, "120 maximum characters").required("* Required"),
     })
 
     return (
         <>
-            <form id='contact-form' onSubmit={formik.handleSubmit}>
-                <div className='flex'>
-                    <div className="label">
-                        <label htmlFor="name" id='name'></label>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder='NAME'
-                            onChange={formik.handleChange}
-                            value={formik.values.name}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className={formik.errors.name ? 'error active' : 'error'}>
-                        {formik.errors.name}
+            <Formik 
+                initialValues={{ name: "", email: "", phone: "", message: ""}} 
+                validationSchema={contactFormSchema}
+                onSubmit={submitForm}
+            >
+                <Form id='contact-form'>
+                    <div className='flex'>
+                        
+                        <div className="label">
+                            <label htmlFor="name" id='name'></label>
+                        </div>
+                        <div>
+                            <Field
+                                name="name"
+                                placeholder='NAME'
+                            />
+                        </div>
+                        <div>
+                            <ErrorMessage component="div" className='error' name='name' />
+                        </div>
+                        
+                        <div className="label">
+                            <label htmlFor="email" id='email'></label>
+                        </div>
+                        <div>
+                            <Field
+                                name="email"
+                                placeholder="EMAIL"
+                            />
+                        </div>
+                        <div>
+                            <ErrorMessage component="div" className='error' name='email' />
+                        </div>
+
+                        <div className="label">
+                            <label htmlFor="phone" id='phone'></label>
+                        </div>
+                        <div>
+                            <Field
+                                name="phone"
+                                placeholder='PHONE'
+                            />
+                        </div>
+                        <div>
+                            <ErrorMessage component="div" className='error' name='phone' />
+                        </div>
+
+                        <div className="label">
+                            <label htmlFor="message" id='message'></label>
+                        </div>
+                        <div>
+                            <Field
+                                name="message"
+                                placeholder='MESSAGE'
+                            />
+                        </div>
+                        <div>
+                            <ErrorMessage component="div" className='error' name='message' />
+                        </div>
                     </div>
 
-                    <div className="label">
-                        <label htmlFor="email" id='email'></label>
-                    </div>
-                    <div>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="EMAIL"
-                            onChange={formik.handleChange}
-                            value={formik.values.email}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className={formik.errors.email ? 'error active' : 'error'}>
-                        {formik.errors.email}
-                    </div>
+                    <button className="btn" type="submit">
+                        {buttonState}
+                    </button>    
+                </Form>
+            </Formik>
 
-                    <div className="label">
-                        <label htmlFor="phone" id='phone'></label>
-                    </div>
-                    <div>
-                        <input
-                            type="tel"
-                            name="phone"
-                            placeholder='PHONE'
-                            onChange={formik.handleChange}
-                            value={formik.values.phone}
-                        />
-                    </div>
-                    <div className={formik.errors.phone ? 'error active' : 'error'}>
-                        {formik.errors.phone}
-                    </div>
+            {message && <div className='message'>{message}</div>}
 
-                    <div className="label">
-                        <label htmlFor="message" id='message'></label>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="message"
-                            placeholder='MESSAGE'
-                            onChange={formik.handleChange}
-                            value={formik.values.message}
-                            autoComplete="off"
-                        />
-                    </div>
-                    <div className={formik.errors.message ? 'error active' : 'error'}>
-                        {formik.errors.message}
-                    </div>
-                </div>
-
-                <button disabled={formik.isSubmitting} className="btn" type="submit">
-                    {buttonState}
-                </button>                        
-            </form>
-
-            <div className={ messageSent ? 'ty-wrap active' : 'ty-wrap' } >
+            <div className={ messageSuccess ? 'ty-wrap active' : 'ty-wrap' } >
                 <p>
                     Thank you, we will be in touch shortly. In the meantime you can follow us <a href='https://www.instagram.com/ollinsalon/?hl=en' target='_blank' rel="noreferrer noopener">@ollinsalon</a>
                 </p>
