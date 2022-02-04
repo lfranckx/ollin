@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 const Contact = () => {
     const [messageSuccess, toggleMessageSuccess] = useState(false);
     const [buttonState, handleButtonState] = useState('SEND');
+    const [buttonDisabled, handleButtonDisabled] = useState(false);
     const [message, handleMessage] = useState('');
     
     const serviceNum = process.env.REACT_APP_SERVICE_NUM;
@@ -20,6 +21,7 @@ const Contact = () => {
             .then(res => {
                     toggleMessageSuccess(true);
                     handleButtonState('MESSAGE SENT');
+                    handleButtonDisabled(true);
                 }
             )
         } catch (error) {
@@ -97,7 +99,7 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <button className="btn" type="submit">
+                    <button className="btn" type="submit" disabled={buttonDisabled}>
                         {buttonState}
                     </button>    
                 </Form>
