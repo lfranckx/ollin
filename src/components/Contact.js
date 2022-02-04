@@ -1,23 +1,47 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
-// import { Formik, Form, Field, ErrorMessage } from 'formik';nppm run
+import * as emailjs from 'emailjs-com';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-export default function Contact() {
+const Contact = () => {
     const [messageSent, handleMessageSent] = useState(false);
+    const [buttonState, handleButtonState] = useState('SEND MESSAGE')
 
-    function sendEmail(e) {
-        e.preventDefault();
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            reply_to: ''
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().min(1, 'Name is too short').max(20, "20 maximum characters").required('* Required'),
+            email: Yup.string().email("Invalid email").required("* Required"),
+            phone: Yup.string().matches(phoneRegExp, `This doesn't look like a phone number`).required("* Required"),
+            message: Yup.string().max(120, "120 maximum characters").required("* Required"),
+            reply_to: Yup.string().min(2, 'Message is too short').email("Invalid email").required("* Required")
+        }),
+        onSubmit: (values) => {
+            console.log('values', values);
+            handleButtonState('SENDING MESSAGE')
+            try {
+                emailjs.send("service_a9og5hl", "template_9uozpwi", values, "user_4ZnH44kohKcJmQhnL2VGX").then(() => {
+                    console.log('email sent');
+                    handleButtonState('MESSAGE SENT');
+                    handleMessageSent(true);
+                })
+            } catch {
 
-        emailjs.sendForm("service_a9og5hl", "template_9uozpwi", e.target, "user_4ZnH44kohKcJmQhnL2VGX")
-            .then(res => {
-                handleMessageSent(true);
-            })
-            .catch(err => console.log(err));
-    }
+            }
+            
+        }
+    })
 
     return (
         <>
-            <form id='contact-form' onSubmit={sendEmail}>
+            <form id='contact-form' onSubmit={formik.handleSubmit}>
                 <div className='flex'>
                     <div className="label">
                         <label htmlFor="name" id='name'></label>
@@ -27,7 +51,13 @@ export default function Contact() {
                             type="text"
                             name="name"
                             placeholder='NAME'
+                            onChange={formik.handleChange}
+                            value={formik.values.name}
+                            autoComplete="off"
                         />
+                    </div>
+                    <div className={formik.errors.name ? 'error active' : 'error'}>
+                        {formik.errors.name}
                     </div>
 
                     <div className="label">
@@ -38,7 +68,13 @@ export default function Contact() {
                             type="email"
                             name="email"
                             placeholder="EMAIL"
+                            onChange={formik.handleChange}
+                            value={formik.values.email}
+                            autoComplete="off"
                         />
+                    </div>
+                    <div className={formik.errors.email ? 'error active' : 'error'}>
+                        {formik.errors.email}
                     </div>
 
                     <div className="label">
@@ -49,7 +85,12 @@ export default function Contact() {
                             type="tel"
                             name="phone"
                             placeholder='PHONE'
+                            onChange={formik.handleChange}
+                            value={formik.values.phone}
                         />
+                    </div>
+                    <div className={formik.errors.phone ? 'error active' : 'error'}>
+                        {formik.errors.phone}
                     </div>
 
                     <div className="label">
@@ -60,12 +101,18 @@ export default function Contact() {
                             type="text"
                             name="message"
                             placeholder='MESSAGE'
+                            onChange={formik.handleChange}
+                            value={formik.values.message}
+                            autoComplete="off"
                         />
+                    </div>
+                    <div className={formik.errors.message ? 'error active' : 'error'}>
+                        {formik.errors.message}
                     </div>
                 </div>
 
-                <button className="btn" type="submit">
-                    SEND
+                <button disabled={formik.isSubmitting} className="btn" type="submit">
+                    {buttonState}
                 </button>                        
             </form>
 
@@ -77,3 +124,5 @@ export default function Contact() {
         </>
     )
 }
+
+export default Contact;
