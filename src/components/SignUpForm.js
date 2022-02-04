@@ -6,7 +6,6 @@ import axios from 'axios';
 const SignUpForm = () => {
 
     const [message, handleMessage] = useState('');
-    const serverUrl = process.env.REACT_APP_SERVER_URL;
 
     const submitForm = async (values) => {
         const { email } = values;
@@ -16,7 +15,7 @@ const SignUpForm = () => {
                 email_address: email
             };
 
-            await axios.post(serverUrl, payload);
+            await axios.post("https://serene-journey-81970.herokuapp.com/", payload);
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
 
         } catch (error) {

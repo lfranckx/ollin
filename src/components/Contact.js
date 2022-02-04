@@ -8,17 +8,12 @@ const Contact = () => {
     const [buttonState, handleButtonState] = useState('SEND');
     const [buttonDisabled, handleButtonDisabled] = useState(false);
     const [message, handleMessage] = useState('');
-    
-    const serviceNum = process.env.REACT_APP_SERVICE_NUM;
-    const templateNum = process.env.REACT_APP_TEMPLATE_NUM;
-    const userId = process.env.REACT_APP_USER_ID;
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-    
+        
     const submitForm = (values) => {
         handleButtonState('SENDING')
-        console.log(serviceNum, templateNum, values, userId);
+
         try {
-            emailjs.send(serviceNum, templateNum, values, userId)
+            emailjs.send("service_a9og5hl", "template_9uozpwi", values, "user_4ZnH44kohKcJmQhnL2VGX")
             .then(res => {
                     toggleMessageSuccess(true);
                     handleButtonState('MESSAGE SENT');
@@ -29,7 +24,8 @@ const Contact = () => {
             handleMessage(error.message);
         }
     }
-
+    
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const contactFormSchema = Yup.object().shape({
         name: Yup.string().min(2, '* Name is too short').max(20, "* 20 maximum characters").required('* Required'),
         email: Yup.string().email("* Invalid email").required("* Required"),
