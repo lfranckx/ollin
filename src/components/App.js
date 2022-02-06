@@ -12,6 +12,7 @@ function App() {
         <>
             <Helmet>
                 <meta name='description' content="Ollin salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner potential. Ollin’s story is a way of being and self-care should be a way of life."/>
+                <meta name='keywords' content='Lived in, lived in color, California blonde, balayage, foils, highlights, foilyage, foiliage, ombré, color melt, dimensional blonde,  haircolor, hair color, hair dye, blonde hair, teasy lites, hairstylist, colorist, straight hair, wavy hair, curly hair, black hair, red hair, brown hair, brunette hair, Miami, Los Angeles, Mexico City' />
                 <title>Ollin Salon | Johnny Ramirez</title>
             </Helmet>
             <div className='app'>
