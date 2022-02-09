@@ -11,9 +11,17 @@ const Contact = () => {
         
     const submitForm = (values) => {
         handleButtonState('SENDING')
+        console.log(values);
+        const newValues = {
+            email: values.email,
+            message: values.message,
+            name: values.name,
+            phone: values.phone,
+            reply_to: values.email
+        }
 
         try {
-            emailjs.send("service_a9og5hl", "template_9uozpwi", values, "user_4ZnH44kohKcJmQhnL2VGX")
+            emailjs.send("service_a9og5hl", "template_9uozpwi", newValues, "user_4ZnH44kohKcJmQhnL2VGX")
             .then(res => {
                     toggleMessageSuccess(true);
                     handleButtonState('MESSAGE SENT');
@@ -36,7 +44,7 @@ const Contact = () => {
     return (
         <>
             <Formik 
-                initialValues={{ name: "", email: "", phone: "", message: ""}} 
+                initialValues={{ name: "", email: "", phone: "", message: "" }} 
                 validationSchema={contactFormSchema}
                 onSubmit={submitForm}
             >
