@@ -11,7 +11,6 @@ const Contact = () => {
         
     const submitForm = (values) => {
         handleButtonState('SENDING')
-        console.log(values);
         const newValues = {
             email: values.email,
             message: values.message,
