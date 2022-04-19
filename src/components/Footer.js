@@ -9,20 +9,6 @@ export default function Footer() {
                 <div className='flex-wrap'>
                     <div className='newsletter'>
                         <h3>NEWSLETTER</h3>
-                        {/* <form>
-                            <div className="label">
-                                <label htmlFor="email"></label>
-                            </div>
-                            <div className='input-wrap'>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="EMAIL"
-                                />
-                            </div>
-
-                            <button className='btn'>SEND</button>
-                        </form> */}
                         <SignUpForm />
                     </div>
 
