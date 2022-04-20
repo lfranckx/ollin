@@ -19,7 +19,6 @@ const SignUpForm = () => {
             handleMessage("Thank you for signing up. You'll be the first to know about everything Ollin.");
 
         } catch (error) {
-            console.log(error.message);
             handleMessage(error.message);
         }
     }
