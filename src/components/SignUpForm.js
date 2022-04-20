@@ -12,7 +12,8 @@ const SignUpForm = () => {
 
         try {
             const payload = {
-                email_address: email
+                email_address: email,
+                id: 'ollin'
             };
 
             await axios.post("https://serene-journey-81970.herokuapp.com/", payload);
