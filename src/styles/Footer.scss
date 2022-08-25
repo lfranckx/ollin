@@ -128,10 +128,13 @@
         }
 
         .social-links {
+            width: 100%;
+
             ul {
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
+                justify-content: flex-end;
 
                 li {
                     margin: 0 20px;
@@ -165,6 +168,25 @@
                         }
                     }
                 }
+            }
+
+
+            .copyright-content {
+                small {
+                    display: block;
+                    margin: 20px;
+                    font-size: 16px;
+                    text-align: right;
+                }
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+
+            @media (max-width: 515px) {
+                position: relative;
+                right: -20px;
             }
         }
 

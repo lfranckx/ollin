@@ -19,6 +19,11 @@ export default function Footer() {
                             <li><a href='https://www.pinterest.com/JohnnyRamirez1/' target="_blank" rel="noreferrer noopener"><i className="fab fa-pinterest-p"></i></a></li>
                             <li><a href='https://www.youtube.com/c/JohnnyRamirezColor' target="_blank" rel="noreferrer noopener"><i className="fab fa-youtube"></i></a></li>
                         </ul>
+
+                        <div className='copyright-content'>
+                            <small>Managed by <a href='https://socialarthouse.com' rel="noreferrer noopener" target='_blank'>Social Art House</a></small>
+                            <small>Website designed and developed by <a href='https://lfxmedia.io' rel="noreferrer noopener" target='_blank'>LFX Media</a></small>
+                        </div>
                     </div>
                 </div>
 
