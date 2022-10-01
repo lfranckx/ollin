@@ -11,8 +11,7 @@ function App() {
     return (
         <>
             <Helmet>
-                <meta name='description' content="Ollin salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner potential. Ollin’s story is a way of being and self-care should be a way of life."/>
-                <meta name='keywords' content='Johnny Ramirez, Ramirez Tran Salon, Beverly Hills Salon, Lived in, lived in color, California blonde, balayage, foils, highlights, foilyage, foiliage, ombré, color melt, dimensional blonde,  haircolor, hair color, hair dye, blonde hair, teasy lites, hairstylist, colorist, straight hair, wavy hair, curly hair, black hair, red hair, brown hair, brunette hair, Miami, Los Angeles, Mexico City' />
+                <meta name='description' content="Ollin salon is ran and owned by celebrity hair stylist Johnny Ramirez. The former co-owner of Ramirez Tran Salon. Currently located in Beverly Hills, Miami, and soon to be in Mexico City. Ollin Salon is a creative space with the primary goal to help you embrace who you are and help you align with your inner potential. Ollin’s story is a way of being and self-care should be a way of life."/>
                 <title>Ollin Salon | Johnny Ramirez</title>
             </Helmet>
             <div className='app'>
