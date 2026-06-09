@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Contact = () => {
+    const SITE_KEY = '6LdZHhUtAAAAAHSH5aAZ-8QNlQqs1s2xWs_r8d1Z';
     const [messageSuccess, toggleMessageSuccess] = useState(false);
     const [buttonState, handleButtonState] = useState('SEND');
     const [buttonDisabled, handleButtonDisabled] = useState(false);
@@ -12,7 +13,7 @@ const Contact = () => {
     const loadTime = useRef(Date.now());
     const [captchaToken, setCaptchaToken] = useState('');
     const recaptchaRef = useRef(null);
-    const SITE_KEY = '6LdZHhUtAAAAAHSH5aAZ-8QNlQqs1s2xWs_r8d1Z';
+    
 
     useEffect(() => {
         if (!window.grecaptcha) {
