@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/Footer.scss';
 import SignUpForm from './SignUpForm';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
@@ -36,6 +37,9 @@ export default function Footer() {
                             <h3>Ollin Miami <a href='tel:786-536-9090' rel="noreferrer noopener">(786)536-9090</a></h3>
                         </li>
                     </ul>
+                </div>
+                <div className='legal'>
+                    <Link to='/privacy-policy'>Privacy Policy</Link>
                 </div>
             </footer>
         </div>

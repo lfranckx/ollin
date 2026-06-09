@@ -6,6 +6,7 @@ import Homepage from '../pages/Homepage';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import NotFound from '../pages/NotFound';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Navbar />
                 <Switch>
                     <Route exact path='/' component={Homepage} />
+                      <Route exact path='/privacy-policy' component={PrivacyPolicy} />
                     <Route component={NotFound}/>
                 </Switch>
                 <Footer />

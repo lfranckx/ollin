@@ -114,6 +114,9 @@ main {
 }
 
 #contact {
+    height: auto;
+    min-height: 100vh;
+
     .content {
         h3 {
             a {
@@ -186,9 +189,38 @@ main {
         .ty-wrap.active {
             opacity: 1;
             height: auto;
+            margin-top: 30px;
+            padding-bottom: 60px;
         }
     }
     .content.active {
         opacity: 1;
     }
+}
+
+
+#contact .content .sms-disclaimer {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: .75;
+    margin: -15px 0 10px;   // pulls up against the phone field
+    max-width: 800px;
+    text-align: left;
+
+    @media(max-width: 700px) {
+        font-size: 12px;
+    }
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.recaptcha-wrap {
+    margin: 20px 0 10px;
 }

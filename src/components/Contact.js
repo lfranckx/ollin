@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import * as emailjs from 'emailjs-com';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -8,30 +8,63 @@ const Contact = () => {
     const [buttonState, handleButtonState] = useState('SEND');
     const [buttonDisabled, handleButtonDisabled] = useState(false);
     const [message, handleMessage] = useState('');
-        
+
+    const loadTime = useRef(Date.now());
+    const [captchaToken, setCaptchaToken] = useState('');
+    const recaptchaRef = useRef(null);
+    const SITE_KEY = '6LdZHhUtAAAAAHSH5aAZ-8QNlQqs1s2xWs_r8d1Z';
+
+    useEffect(() => {
+        if (!window.grecaptcha) {
+            const script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+        }
+        const interval = setInterval(() => {
+            if (window.grecaptcha && window.grecaptcha.render && recaptchaRef.current && !recaptchaRef.current.hasChildNodes()) {
+                window.grecaptcha.render(recaptchaRef.current, {
+                    sitekey: SITE_KEY,
+                    theme: 'dark',
+                    callback: (token) => setCaptchaToken(token),
+                    'expired-callback': () => setCaptchaToken('')
+                });
+                clearInterval(interval);
+            }
+        }, 300);
+        return () => clearInterval(interval);
+    }, []);
+
     const submitForm = (values) => {
+        if (values.company) return;                          // honeypot
+        if (Date.now() - loadTime.current < 3000) return;    // time-trap
+        if (!captchaToken) {                                 // reCAPTCHA
+            handleMessage('Please confirm you are not a robot.');
+            return;
+        }
+
         handleButtonState('SENDING')
         const newValues = {
             email: values.email,
             message: values.message,
             name: values.name,
             phone: values.phone,
-            reply_to: values.email
+            reply_to: values.email,
+            'g-recaptcha-response': captchaToken
         }
 
-        try {
-            emailjs.send("service_a9og5hl", "template_9uozpwi", newValues, "user_4ZnH44kohKcJmQhnL2VGX")
+        emailjs.send("service_a9og5hl", "template_9uozpwi", newValues, "user_4ZnH44kohKcJmQhnL2VGX")
             .then(res => {
-                    toggleMessageSuccess(true);
-                    handleButtonState('MESSAGE SENT');
-                    handleButtonDisabled(true);
-                }
-            )
-        } catch (error) {
-            handleMessage(error.message);
-        }
+                toggleMessageSuccess(true);
+                handleButtonState('MESSAGE SENT');
+                handleButtonDisabled(true);
+            })
+            .catch(error => {
+                handleMessage(error.text || error.message || 'Something went wrong.');
+            });
     }
-    
+
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     const contactFormSchema = Yup.object().shape({
         name: Yup.string().min(2, '* Name is too short').max(20, "* 20 maximum characters").required('* Required'),
@@ -43,7 +76,7 @@ const Contact = () => {
     return (
         <>
             <Formik 
-                initialValues={{ name: "", email: "", phone: "", message: "" }} 
+                initialValues={{ name: "", email: "", phone: "", message: "", company: "" }}
                 validationSchema={contactFormSchema}
                 onSubmit={submitForm}
             >
@@ -89,6 +122,14 @@ const Contact = () => {
                             <ErrorMessage component="div" className='error' name='phone' />
                         </div>
 
+                        <div>
+                            <p className='sms-disclaimer'>
+                                By entering your phone number, you are agreeing to receive text messages from
+                                us. Message frequency may vary. Message &amp; data rates may apply. Reply HELP
+                                for more information. You can reply STOP to opt-out.
+                            </p>
+                        </div>
+
                         <div className="label">
                             <label htmlFor="message" id='message'></label>
                         </div>
@@ -101,7 +142,17 @@ const Contact = () => {
                         <div>
                             <ErrorMessage component="div" className='error' name='message' />
                         </div>
+
+                        <Field
+                            type="text"
+                            name="company"
+                            className="hp-field"
+                            tabIndex="-1"
+                            autoComplete="off"
+                        />
                     </div>
+
+                     <div className='recaptcha-wrap' ref={recaptchaRef}></div>
 
                     <button className="btn" type="submit" disabled={buttonDisabled}>
                         {buttonState}
